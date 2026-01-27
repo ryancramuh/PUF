@@ -1,0 +1,51 @@
+`timescale 1ns/1ps
+
+(* dont_touch = "yes" *) module PUF_SLICE(
+
+    (* dont_touch = "yes" *) input logic A,
+    (* dont_touch = "yes" *) input logic B,
+
+    (* dont_touch = "yes" *) input logic sel,
+    (* dont_touch = "yes" *) input logic enable,
+    (* dont_touch = "yes" *) input logic bx
+
+    (* dont_touch = "yes" *) output logic O1,
+    (* dont_touch = "yes" *) output logic O2
+
+);
+
+(* dont_touch = "yes" *) logic bx_O, LUT1_O, LUT2_O;
+
+always_latch begin
+    if (enable) O2 <= bx_O;
+end
+
+PUF_DOUBLE_MUX LUT1(
+    .A(A),
+    .B(B),
+    .sel(sel),
+    .enable(enable),
+    .O(LUT1_O)
+);
+
+PUF_DOUBLE_MUX LUT2(
+    .A(A),
+    .B(B),
+    .sel(sel),
+    .enable(enable),
+    .O(LUT2_O)
+);
+
+always_comb begin
+    case(bx)
+        1'b0: bx_O = LUT1_O;
+        1'b1: bx_O = LUT2_O;
+        default: bx_O = 1'bx;
+    endcase
+end
+
+assign O1 = bx_O;
+
+
+
+endmodule
