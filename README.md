@@ -8,8 +8,6 @@ A set of physically unclonable functions implemented with ring oscillators. It's
 
 [PUF Github](https://github.com/ryancramuh/PUF)
 
-# Lab 1 - PUF 
-
 Please submit your lab as an archive file containing your project and your PDF write up.
 
 
