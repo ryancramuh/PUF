@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
 
+(* dont_touch = "yes" *)
+(* keep_hierarchy = "yes" *)
 module puf_cro(
 	input [5:0] challenge,
 	input en,
