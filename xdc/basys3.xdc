@@ -17,6 +17,7 @@ set_property CLOCK_DEDICATED_ROUTE FALSE [get_nets sw_IBUF[6]] ## just needs one
 create_pblock pblock_cro
 add_cells_to_pblock [get_pblocks pblock_cro] [get_cells -quiet [list cro]]
 resize_pblock [get_pblocks pblock_cro] -add {SLICE_X0Y9:SLICE_X1Y10}
+set_property EXCLUDE_PLACEMENT TRUE [get_pblocks pblock_cro]
 
 ## Switches
 set_property -dict {PACKAGE_PIN V17 IOSTANDARD LVCMOS33} [get_ports {sw[0]}]
