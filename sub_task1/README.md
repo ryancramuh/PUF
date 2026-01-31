@@ -1,4 +1,4 @@
-### Sub Task 1
+## Sub Task 1
 
 The paper describes two new methods used to generate a ring-oscillator based PUF. The first is to develop a different configurable ring-oscillator (Figure 6). Your ROs should also use KEEP and S attributes to avoid signal optimization (see potential problems). Design and implement your own configurable ring-oscillator using these requirements.
 
