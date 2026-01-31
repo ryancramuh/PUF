@@ -3,7 +3,7 @@
 // ensure synthesizer doens't touch this 
 (* dont_touch = "yes" *)
 
-module led_circuit
+module led_circuit_test
 (
 	input               clk, // global clock
 	input [6:0]         sw,  // Basys 3 switches
@@ -12,8 +12,8 @@ module led_circuit
 );
 
 	logic        up;   // posedge of RO     
-	logic [19:0] cnt;  // clock divider counter
-	logic [19:0] cnt2; // RO posedge counter
+	logic [23:0] cnt;  // clock divider counter
+	logic [31:0] cnt2; // RO posedge counter
 
 	// instantiate the CRO (now as a hard macro pblock)
 	puf_cro cro(
