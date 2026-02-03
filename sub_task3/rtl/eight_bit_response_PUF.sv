@@ -3,14 +3,19 @@
 // ensure synthesizer doens't touch this 
 (* dont_touch = "yes" *)
 
+// Calculates an 8 bit response for a 6 bit challenge.
+// Accomplishes this by muxing through 9 ROs and taking (RO_N - RO_N-1)
 module eight_bit_response_PUF
 (
     input               rst, // global reset for FSM
 	input               clk, // global clock
 	input [5:0]         sw,  // Basys 3 switches
-	input               en,    
-	output logic [7:0] led,  // Basys 3 LEDs
-	output logic done        // let's us know when PUF is done
+	input               en,  // enables the RO
+	
+	output logic        done,        // let's us know when PUF is done
+	
+	output logic        [3:0] an,    // anodes for the Seven Segment Display
+	output logic        [6:0] seg    // individual Segment control for Seven Segment Display
 );
 
 	logic        r0;   // output of RO 0
@@ -56,6 +61,8 @@ module eight_bit_response_PUF
     logic ro_sync1, ro_sync2, ro_sync2_d;
     logic ro_rise = (ro_sync2 && !ro_sync2_d);  // ro's rising edge in the clk domain
 
+    logic [7:0] sseg; // the byte to be displayed by the 7-segment display
+    
     assign max = sel == 8; // let's us know when we are done
      
 	// Configurable Ring Oscillator 0
@@ -151,13 +158,13 @@ module eight_bit_response_PUF
      // double flip flop synchronizer 
     always_ff @(posedge clk) begin
       if (rst) begin
-        ro_sync1   <= 1'b0;
+        ro_sync1   <= 1'b0; // if reset, set all flops to zero
         ro_sync2   <= 1'b0;
         ro_sync2_d <= 1'b0;
       end else begin
-        ro_sync1   <= ro_mux_o;
-        ro_sync2   <= ro_sync1;
-        ro_sync2_d <= ro_sync2;
+        ro_sync1   <= ro_mux_o; // else always flop ro_sync with the current RO
+        ro_sync2   <= ro_sync1; // then sync ro_sync2 to ro_sync1 on the next posedge
+        ro_sync2_d <= ro_sync2; // then sync ro_sync2_d to ro_sync2 (double flop)
       end
     end
     
@@ -275,6 +282,16 @@ module eight_bit_response_PUF
 	   else
 	       recalc = 1'b0;
     
+    
+    // Seven Segment to Display Response and Challenge
+    sseg_des sseg_disp(
+        .COUNT({{2'b0,sw},sseg}), // left two anodes = challenge, right two anodes = response 
+        .CLK(clk), // clk divider internal to the module, no need to add clock division
+        .VALID(done), // done is high in state DONE, which is perfect for the valid
+        .DISP_EN(an), // disp_en is connected to the anodes 
+        .SEGMENTS(seg) // segements are connected to the seven segments
+    );
+    
     // Get Eight Response State Machine:
     
         /*
@@ -298,12 +315,13 @@ module eight_bit_response_PUF
         ld_reg = 1'b0;
         std_up = 1'b0;
         next = 1'b0;
-        led = 8'b0000_0000;
+        sseg = 8'b0000_0000;
         done = 1'b0;
         
         
         case(PS)
             
+            // Initially, the state machine waits for EN
             INIT: begin
                 if(recalc) begin
                     NS = INIT;
@@ -318,6 +336,14 @@ module eight_bit_response_PUF
                 end
             end 
             
+            // Once EN is recieved, we transition to GET_RO
+            // As the name implies, we get all the RO cnts
+            // in this stage. 
+            // once we get capture_ro, 
+            // we store the ro_cnt in ro_cnts[sel]
+            // and increment to the next sel
+            // note ** we also clr ro_cntrs[sel+1]
+            // to make room for the next value;
             GET_RO: begin
                 if(recalc) begin
                     clr_ro = 1'b1;
@@ -344,15 +370,18 @@ module eight_bit_response_PUF
                 end
             end
             
+            // Done just tells the machine to display
+            // the comparison of the ro_cnts and the 
+            // challenge byte on the seven segment 
             DONE: begin
                 if(recalc) begin
-                    led = 0;
+                    sseg = 0;
                     done = 1'b0;
                     clr_ro = 1'b1;
                     clr_std = 1'b1;
                     NS = INIT;
                 end else begin
-                    led = response_buffer;
+                    sseg = response_buffer;
                     done = 1'b1;
                     NS = DONE;
                 end
@@ -367,11 +396,15 @@ module eight_bit_response_PUF
         
     end
     
+    // basic FSM engine
+    // if rst, present state = INIT
+    // else present state is next state
+    // appointed by the combinational block
 	always_ff@(posedge clk)
 	   if(rst)
 	       PS <= INIT;
 	   else
 	       PS <= NS;
-	       
+	
 
 endmodule
