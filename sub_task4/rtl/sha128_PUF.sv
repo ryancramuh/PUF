@@ -1,0 +1,478 @@
+`timescale 1ns/1ps
+
+// ensure synthesizer doens't touch this 
+(* dont_touch = "yes" *)
+
+// Hashes a 128 bit output for an
+// an 8 bit response given from a 6 bit challenge.
+// Accomplishes this by muxing through 9 ROs and taking (RO_N - RO_N-1)
+// and then hashing that 8 bit string into 128 bits.
+module sha128_PUF
+(
+    input               rst, // global reset for FSM
+	input               clk, // global clock
+	input [5:0]         sw,  // Basys 3 switches
+	input [3:0]         byte_pair,
+	input               en,  // enables the RO
+	
+	output logic        done,        // let's us know when PUF is done
+	
+	output logic        [3:0] an,    // anodes for the Seven Segment Display
+	output logic        [6:0] seg    // individual Segment control for Seven Segment Display
+);
+
+	logic        r0;   // output of RO 0
+	logic        r1;   // output of RO 1
+	logic        r2;   // output of RO 2
+	logic        r3;   // output of RO 3
+	logic        r4;   // output of RO 4
+	logic        r5;   // output of RO 5
+	logic        r6;   // output of RO 6
+	logic        r7;   // output of RO 7
+	logic        r8;   // output of RO 8
+	
+	logic ro_mux_o;    // which RO we are looking at
+    logic [3:0] sel;    // we look at RO 0, then RO 1
+    logic next;
+    logic max;
+    
+    logic [5:0] captured_sw; // flip flopped value of switches
+    logic recalc;        // recalculate result;
+    
+    logic [3:0] ld_addr;  // which ro cnt we are loading
+    logic [3:0] clr_addr; // which ro cnt we are clearning
+	
+	logic        clr_ro; // clear the RO counter
+	logic [24:0] ro_cnt; // the current # of RO posedge's we've seen
+	
+	logic        std_up;     // increment the std_cntr on the posedge of clk    
+	logic        clr_std;    // clear the std cntr before examining an RO
+	logic        capture_ro; // get the RO counter count
+	
+	logic clr_reg;   // clr the ro_cnts at clr_addr 
+	logic clr_start; // clr the ro_cnts at [0]
+	logic ld_reg;    // ld the ro_cnts at [ld_addr]
+	
+	logic [24:0] ro_cnts [0:8];  // 9 RO counts to generate 8 response bits
+	logic [7:0] response_buffer; // where we output the PUF response 
+	
+    
+    // if RO_N counter larger than RO_N-1 counter
+    logic gt;
+    
+    // flip flops for synchronization
+    logic ro_sync1, ro_sync2, ro_sync2_d;
+    logic ro_rise = (ro_sync2 && !ro_sync2_d);  // ro's rising edge in the clk domain
+
+    logic [7:0] response; // the byte to be displayed by the 7-segment display
+    
+    logic start_hash;    // start the SHA128 hash
+    logic hash_done;     // the SHA128 hash is done
+    logic [127:0] hash;  // the actual hash value
+    logic [15:0] hash_display; // the byte pair we display (or not)
+    
+    assign max = sel == 8; // let's us know when we are done
+     
+	// Configurable Ring Oscillator 0
+	puf_cro cro0(
+		.challenge(sw[5:0]),
+		.en(en),
+		.o(r0)
+	);
+	
+	// Configurable Ring Oscillator 1
+	puf_cro cro1(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r1)
+	);
+	
+	// Configurable Ring Oscillator 2
+	puf_cro cro2(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r2)
+	);
+    
+    // Configurable Ring Oscillator 3
+	puf_cro cro3(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r3)
+	);
+	
+	// Configurable Ring Oscillator 4
+	puf_cro cro4(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r4)
+	);
+	
+	// Configurable Ring Oscillator 5
+	puf_cro cro5(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r5)
+	);
+	
+	// Configurable Ring Oscillator 6
+	puf_cro cro6(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r6)
+	);
+	
+	// Configurable Ring Oscillator 7
+	puf_cro cro7(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r7)
+	);
+	
+	
+	// Configurable Ring Oscillator 8
+	puf_cro cro8(
+	   .challenge(sw[5:0]),
+	   .en(en),
+	   .o(r8)
+	);
+	
+	// RO MUX
+    always_comb begin
+        case(sel)
+            4'b0000: ro_mux_o = r0;
+            4'b0001: ro_mux_o = r1;
+            4'b0010: ro_mux_o = r2;
+            4'b0011: ro_mux_o = r3;
+            4'b0100: ro_mux_o = r4;
+            4'b0101: ro_mux_o = r5;
+            4'b0110: ro_mux_o = r6;
+            4'b0111: ro_mux_o = r7;
+            4'b1000: ro_mux_o = r8;
+            default: ro_mux_o = r0;
+        endcase
+    end
+    
+    // std_counter @50Mhz
+    counter #(.N(25)) std_counter(
+        .clk(clk),
+        .clr(clr_std | rst),
+        .up(std_up),
+        .cnt(),
+        .rco(capture_ro)
+    );
+    
+
+     // double flip flop synchronizer 
+    always_ff @(posedge clk) begin
+      if (rst) begin
+        ro_sync1   <= 1'b0; // if reset, set all flops to zero
+        ro_sync2   <= 1'b0;
+        ro_sync2_d <= 1'b0;
+      end else begin
+        ro_sync1   <= ro_mux_o; // else always flop ro_sync with the current RO
+        ro_sync2   <= ro_sync1; // then sync ro_sync2 to ro_sync1 on the next posedge
+        ro_sync2_d <= ro_sync2; // then sync ro_sync2_d to ro_sync2 (double flop)
+      end
+    end
+    
+
+    // ro_cnt counted in clk domain
+    always_ff @(posedge clk) begin
+      if (rst || clr_ro) begin
+        ro_cnt <= '0;
+      end else if (ro_rise) begin
+        ro_cnt <= ro_cnt + 1'b1;
+      end
+    end
+            
+    // Register File for RO counter
+    always_ff@(posedge clk) begin
+        if(rst) begin
+            ro_cnts[0] <= 0;
+        end else if(clr_start) begin
+            ro_cnts[0] <= 0;
+        end else if(ld_reg) begin
+            ro_cnts[ld_addr] <= ro_cnt;
+            if(clr_reg) begin
+                ro_cnts[clr_addr] <= 0;
+            end
+        end else begin
+            ro_cnts <= ro_cnts;
+        end
+    end
+    
+    // Block that selects which
+    // ro_cnts register to clear and load
+    always_comb begin
+        ld_addr = 4'd0;
+        clr_addr = 4'd0;
+        case(sel)
+            4'd0: begin
+                ld_addr = 4'd0;
+                clr_addr = 4'd1;
+            end
+            4'd1: begin
+                ld_addr = 4'd1;
+                clr_addr = 4'd2;
+            end
+            4'd2: begin
+                ld_addr = 4'd2;
+                clr_addr = 4'd3;
+            end
+            4'd3: begin
+                ld_addr = 4'd3;
+                clr_addr = 4'd4;
+            end
+            4'd4: begin
+                ld_addr = 4'd4;
+                clr_addr = 4'd5;
+            end
+            4'd5: begin
+                ld_addr = 4'd5;
+                clr_addr = 4'd6;
+            end
+            4'd6: begin
+                ld_addr = 4'd6;
+                clr_addr = 4'd7;
+            end
+            4'd7: begin
+                ld_addr = 4'd7;
+                clr_addr = 4'd8;
+            end
+            4'd8: begin
+                ld_addr = 4'd8;
+                clr_addr = 4'd0;
+            end
+            default: begin
+                ld_addr = 4'd0;
+                clr_addr = 4'd0;
+            end
+        endcase
+    end
+    
+    // SEL counter activated by next
+    always_ff@(posedge clk) 
+        if(rst)
+            sel <= 0;
+        else if(next || done)
+            sel <= sel + 1;
+        else
+            sel <= sel;
+    
+    // Comparator calculates the responses if done
+    always_comb begin
+        if(done) begin
+            response_buffer[0] = ro_cnts[0] > ro_cnts[1];
+            response_buffer[1] = ro_cnts[1] > ro_cnts[2];
+            response_buffer[2] = ro_cnts[2] > ro_cnts[3];
+            response_buffer[3] = ro_cnts[3] > ro_cnts[4];
+            response_buffer[4] = ro_cnts[4] > ro_cnts[5];
+            response_buffer[5] = ro_cnts[5] > ro_cnts[6];
+            response_buffer[6] = ro_cnts[6] > ro_cnts[7];
+            response_buffer[7] = ro_cnts[7] > ro_cnts[8];
+        end
+        else begin
+            response_buffer = 0;
+        end
+    end
+    
+    // flop captures the switches
+    always_ff@(posedge clk)
+	   captured_sw <= sw;
+	
+	// if captured switches 
+	// do not equal current switches
+	// then recalculate
+	always_comb 
+	   if(captured_sw != sw) 
+	       recalc = 1'b1;
+	   else
+	       recalc = 1'b0;
+    
+    
+    // Seven Segment to Display Response and Challenge
+    sseg_des sseg_disp(
+        .COUNT(hash_display), // left two anodes = challenge, right two anodes = response 
+        .CLK(clk), // clk divider internal to the module, no need to add clock division
+        .VALID(done), // done is high in state DONE, which is perfect for the valid
+        .DISP_EN(an), // disp_en is connected to the anodes 
+        .SEGMENTS(seg) // segements are connected to the seven segments
+    );
+    
+    // Sha128 Module takes in response and challenge and hashes it
+    sha128_simple(
+        .CLK(clk),
+        .DATA_IN({{2'b0,sw},response}),
+        .RESET(rst),
+        .START(start_hash),
+        .READY(hash_done),
+        .DATA_OUT(hash)
+    );
+    
+    // mux to output the byte pair from the 128 bit hash
+    always_comb
+        case(byte_pair)
+            4'b0000: hash_display = {{2'b00, sw},response};
+            4'b0001: hash_display = hash[15:0];
+            4'b0010: hash_display = hash[31:16];
+            4'b0011: hash_display = hash[47:32];
+            4'b0100: hash_display = hash[63:48];
+            4'b0101: hash_display = hash[79:64];
+            4'b0110: hash_display = hash[95:80];
+            4'b0111: hash_display = hash[111:96];
+            4'b1000: hash_display = hash[127:112];
+            default: hash_display = 16'd0;
+        endcase
+    
+    // Get Eight Response State Machine:
+    
+        /*
+            1. Waits for EN (sw[6])
+            2. Counts for 1.35 seconds then captures RO_0 counter in reg_0
+            3. Counts for 1.35 seconds then captures RO_1 counter in reg_1
+            4. Compares reg0 and reg1, displays led, and displays a second led if reg 0 > reg1
+       */
+       
+	logic [2:0] NS, PS;
+	parameter INIT = 3'b000;
+	parameter GET_RO = 3'b001;
+	parameter START_HASH = 3'b010;
+    parameter WAIT_FOR_DONE = 3'b011;
+    parameter DONE = 3'b100;
+
+
+
+    always_comb begin
+        NS = PS;
+        clr_ro = 1'b0;
+        clr_std = 1'b0;
+        clr_reg = 1'b0;
+        clr_start = 1'b0;
+        ld_reg = 1'b0;
+        std_up = 1'b0;
+        next = 1'b0;
+        response = 8'b0000_0000;
+        start_hash = 1'b0;
+        done = 1'b0;
+        
+        
+        case(PS)
+            
+            // Initially, the state machine waits for EN
+            INIT: begin
+                if(recalc) begin
+                    NS = INIT;
+                end
+                else if(en) begin
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;
+                    clr_start = 1'b0;
+                    NS = GET_RO;
+                end else begin
+                    NS = INIT;
+                end
+            end 
+            
+            // Once EN is recieved, we transition to GET_RO
+            // As the name implies, we get all the RO cnts
+            // in this stage. 
+            // once we get capture_ro, 
+            // we store the ro_cnt in ro_cnts[sel]
+            // and increment to the next sel
+            // note ** we also clr ro_cntrs[sel+1]
+            // to make room for the next value;
+            GET_RO: begin
+                if(recalc) begin
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;
+                    NS = INIT;
+                end
+                else if(max && capture_ro) begin
+                    ld_reg = 1'b1;
+                    clr_reg = 1'b0;
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;                    
+                    NS = START_HASH;
+                end
+                else if(capture_ro) begin
+                    ld_reg = 1'b1;
+                    clr_reg = 1'b1;
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;
+                    next = 1'b1;
+                    NS = GET_RO;
+                end else begin
+                    std_up = 1'b1;
+                    NS = GET_RO;
+                end
+            end
+            
+            // Done just tells the machine to display
+            // the comparison of the ro_cnts and the 
+            // challenge byte on the seven segment 
+            
+            START_HASH: begin
+                if(recalc) begin
+                    response = 0;
+                    done = 1'b0;
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;
+                    NS = INIT;
+                end else begin
+                   response = response_buffer;
+                   start_hash = 1'b1;
+                   NS = WAIT_FOR_DONE;
+                end
+            end
+            
+            WAIT_FOR_DONE: begin
+                if(recalc) begin
+                    response = 0;
+                    done = 1'b0;
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;
+                    NS = INIT;
+                end else if(hash_done) begin
+                    NS = DONE;
+                end else begin
+                    response = response_buffer;
+                    done = 1'b0;
+                    NS = WAIT_FOR_DONE;
+                end
+            end
+            
+            DONE: begin
+                if(recalc) begin
+                    response = 0;
+                    done = 1'b0;
+                    clr_ro = 1'b1;
+                    clr_std = 1'b1;
+                    NS = INIT;
+                end else begin
+                    done = 1'b1;
+                    response = response_buffer;
+                    NS = DONE;
+                end
+            end
+            
+            default: begin
+                NS = INIT;
+            end
+            
+        endcase
+        
+    end
+    
+    // basic FSM engine
+    // if rst, present state = INIT
+    // else present state is next state
+    // appointed by the combinational block
+	always_ff@(posedge clk)
+	   if(rst)
+	       PS <= INIT;
+	   else
+	       PS <= NS;
+	
+
+endmodule
