@@ -12,4 +12,5 @@ analysis:
 	fi
 	@ $(SIM) $(SIM_ARGS) $(TOP).vvp $(TOP).sv
 	@ echo "\033[32m simulating: \033[0m \n"
-	@ vvp $(TOP).vvp
+	@ vvp $(TOP).vvp 
+	@ vvp $(TOP).vvp >> results.log
