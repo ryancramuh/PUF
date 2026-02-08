@@ -1,12 +1,7 @@
-TOP := top
+TOP := calc_hamming
 
 SIM := iverilog
 SIM_ARGS := -g2012 -o
-
-ifeq ($(firstword $(MAKECMDGOALS)),analysis)
-TOP := $(word 2, $(MAKECMDGOALS))
-$(eval $(TOP):;@:)
-endif
 
 .PHONY: analysis
 
@@ -18,4 +13,3 @@ analysis:
 	@ $(SIM) $(SIM_ARGS) $(TOP).vvp $(TOP).sv
 	@ echo "\033[32m simulating: \033[0m \n"
 	@ vvp $(TOP).vvp
-	@ rm -f $(TOP).vvp
