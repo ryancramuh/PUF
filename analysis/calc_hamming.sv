@@ -151,7 +151,7 @@ module calc_hamming();
 		hd_b1_p1_p2 = hd_b1_p1_p2 / 16;
 		$display("\naverage HD between p1 and p2 = %2.2f\n", hd_b1_p1_p2);
 
-		
+		$display("HD(placement1, placement3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p1[%0d]", i);
@@ -163,6 +163,7 @@ module calc_hamming();
 		hd_b1_p1_p3 = hd_b1_p1_p3 / 16;
 		$display("\naverage HD between p1 and p3 = %2.2f\n", hd_b1_p1_p3);
 
+		$display("HD(placement2, placement3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p2[%0d]", i);
@@ -192,7 +193,7 @@ module calc_hamming();
 		hd_b2_p1_p2 = hd_b2_p1_p2 / 16;
 		$display("\naverage HD between p1 and p2 = %2.2f\n", hd_b2_p1_p2);
 
-		
+		$display("HD(placement1, placement3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b2_p1[%0d]", i);
@@ -204,6 +205,7 @@ module calc_hamming();
 		hd_b2_p1_p3 = hd_b2_p1_p3 / 16;
 		$display("\naverage HD between p1 and p3 = %2.2f\n", hd_b2_p1_p3);
 
+		$display("HD(placement2, placement3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b2_p2[%0d]", i);
@@ -221,7 +223,7 @@ module calc_hamming();
 
 		$display("Calculating Interboard HD:\n");
 
-		$display("HD(b1,p1, b2,p1):");
+		$display("HD(board 1 placement 1, board 2 placement 1):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p1[%0d]", i);
@@ -233,7 +235,7 @@ module calc_hamming();
 		interboard_p1 = interboard_p1 / 16;
 		$display("\naverage HD between b1,p1 and b2,p1 = %2.2f\n", interboard_p1);
 
-		$display("HD(b1,p2, b2,p2):");
+		$display("HD(board 1 placement 2, board 2 placement 2):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p2[%0d]", i);
@@ -245,7 +247,7 @@ module calc_hamming();
 		interboard_p2 = interboard_p2 / 16;
 		$display("\naverage HD between b1,p2 and b2,p2 = %2.2f\n", interboard_p2);
 
-		$display("HD(b1,p3, b2,p3):");
+		$display("HD(board 1 placement 3, board 2 placement 3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p3[%0d]", i);
@@ -257,7 +259,7 @@ module calc_hamming();
 		interboard_p3 = interboard_p3 / 16;
 		$display("\naverage HD between b1,p3 and b2,p3 = %2.2f\n", interboard_p3);
 
-		$display("HD(b1,p1, b2,p2):");
+		$display("HD(board 1 placement 1, board 2 placement 2):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p1[%0d]", i);
@@ -269,7 +271,7 @@ module calc_hamming();
 		interboard_p1_p2 = interboard_p1_p2 / 16;
 		$display("\naverage HD between b1,p1 and b2,p2 = %2.2f\n", interboard_p1_p2);
 
-		$display("HD(b1,p2, b2,p1):");
+		$display("HD(board 1 placement 2, board 2 placement 1):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p2[%0d]", i);
@@ -281,7 +283,7 @@ module calc_hamming();
 		interboard_p2_p1 = interboard_p2_p1 / 16;
 		$display("\naverage HD between b1,p2 and b2,p1 = %2.2f\n", interboard_p2_p1);
 
-		$display("HD(b1,p1, b2,p3):");
+		$display("HD(board 1 placement 1, board 2 placement 3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p1[%0d]", i);
@@ -293,6 +295,7 @@ module calc_hamming();
 		interboard_p1_p3 = interboard_p1_p3 / 16;
 		$display("\naverage HD between b1,p1 and b2,p3 = %2.2f\n", interboard_p1_p3);
 
+		$display("HD(board 1 placement 3, board 2 placement 1):");
 		$display("HD(b1,p3, b2,p1):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
@@ -305,7 +308,7 @@ module calc_hamming();
 		interboard_p3_p1 = interboard_p3_p1 / 16;
 		$display("\naverage HD between b1,p3 and b2,p1 = %2.2f\n", interboard_p3_p1);
 
-		$display("HD(b1,p2, b2,p3):");
+		$display("HD(board 1 placement 2, board 2 placement 3):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p2[%0d]", i);
@@ -317,7 +320,7 @@ module calc_hamming();
 		interboard_p2_p3 = interboard_p2_p3 / 16;
 		$display("\naverage HD between b1,p2 and b2,p3 = %2.2f\n", interboard_p2_p3);
 
-		$display("HD(b1,p3, b2,p2):");
+		$display("HD(board 1 placement 3, board 2 placement 2):");
 		for(i = 0; i < 4; i++) begin
 			for(j = 0; j < 4; j++) begin
 				n1 = $sformatf("b1_p3[%0d]", i);
