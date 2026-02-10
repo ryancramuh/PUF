@@ -618,3 +618,801 @@ average HD between b1,p3 and b1,p2 = 46.48
 average intraboard hamming distance for board 1 = 43.02
 average intraboard hamming distance for board 2 = 43.46
 average interboard hamming distance = 42.34
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[0],b1_p2[1]) = 46.88
+HD(b1_p1[0],b1_p2[2]) = 46.09
+HD(b1_p1[0],b1_p2[3]) = 51.56
+HD(b1_p1[1],b1_p2[0]) = 48.44
+HD(b1_p1[1],b1_p2[1]) = 0.00
+HD(b1_p1[1],b1_p2[2]) = 45.31
+HD(b1_p1[1],b1_p2[3]) = 47.66
+HD(b1_p1[2],b1_p2[0]) = 47.66
+HD(b1_p1[2],b1_p2[1]) = 45.31
+HD(b1_p1[2],b1_p2[2]) = 0.00
+HD(b1_p1[2],b1_p2[3]) = 45.31
+HD(b1_p1[3],b1_p2[0]) = 51.56
+HD(b1_p1[3],b1_p2[1]) = 47.66
+HD(b1_p1[3],b1_p2[2]) = 45.31
+HD(b1_p1[3],b1_p2[3]) = 0.00
+
+average HD between p1 and p2 = 35.60
+
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[1]) = 48.44
+HD(b1_p1[2],b1_p2[2]) = 47.66
+HD(b1_p1[3],b1_p2[3]) = 51.56
+
+average HD between p1 and p2 = 9.28
+
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[1]) = 0.00
+HD(b1_p1[2],b1_p2[2]) = 0.00
+HD(b1_p1[3],b1_p2[3]) = 0.00
+
+average HD between p1 and p2 = 0.05
+
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[1]) = 0.00
+HD(b1_p1[2],b1_p2[2]) = 0.00
+HD(b1_p1[3],b1_p2[3]) = 0.00
+
+average HD between p1 and p2 = 0.00
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p3[0]) = 45.31
+HD(b1_p1[1],b1_p3[1]) = 47.66
+HD(b1_p1[2],b1_p3[2]) = 52.34
+HD(b1_p1[3],b1_p3[3]) = 47.66
+
+average HD between p1 and p3 = 12.11
+
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[1]) = 0.00
+HD(b1_p1[2],b1_p2[2]) = 0.00
+HD(b1_p1[3],b1_p2[3]) = 0.00
+
+average HD between p1 and p2 = 0.00
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p3[0]) = 45.31
+HD(b1_p1[1],b1_p3[1]) = 47.66
+HD(b1_p1[2],b1_p3[2]) = 52.34
+HD(b1_p1[3],b1_p3[3]) = 47.66
+
+average HD between p1 and p3 = 12.11
+
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[1]) = 0.00
+HD(b1_p1[2],b1_p2[2]) = 0.00
+HD(b1_p1[3],b1_p2[3]) = 0.00
+
+average HD between p1 and p2 = 0.00
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p3[0]) = 45.31
+HD(b1_p1[1],b1_p3[1]) = 47.66
+HD(b1_p1[2],b1_p3[2]) = 52.34
+HD(b1_p1[3],b1_p3[3]) = 47.66
+
+average HD between p1 and p3 = 48.44
+
+VCD info: dumpfile calc_hamming.vcd opened for output.
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[0]) = 0.00
+HD(b1_p1[2],b1_p2[0]) = 0.00
+HD(b1_p1[3],b1_p2[0]) = 0.00
+
+average HD between p1 and p2 = 0.05
+
+HD(b1_p1[0],b1_p3[0]) = 45.31
+HD(b1_p1[1],b1_p3[0]) = 47.66
+HD(b1_p1[2],b1_p3[0]) = 52.34
+HD(b1_p1[3],b1_p3[0]) = 47.66
+
+average HD between p1 and p3 = 12.06
+
+HD(b1_p2[0],b1_p3[0]) = 45.31
+HD(b1_p2[1],b1_p3[0]) = 47.66
+HD(b1_p2[2],b1_p3[0]) = 52.34
+HD(b1_p2[3],b1_p3[0]) = 47.66
+
+average HD between p2 and p3 = 12.06
+
+Calculating HD for Board 2:
+
+HD(placement1, placement2):
+HD(b2_p1[0],b2_p2[0]) = 0.00
+HD(b2_p1[1],b2_p2[0]) = 1.56
+HD(b2_p1[2],b2_p2[0]) = 1.56
+HD(b2_p1[3],b2_p2[0]) = 0.00
+
+average HD between p1 and p2 = 0.20
+
+HD(b2_p1[0],b2_p3[0]) = 51.56
+HD(b2_p1[1],b2_p3[0]) = 46.88
+HD(b2_p1[2],b2_p3[0]) = 47.66
+HD(b2_p1[3],b2_p3[0]) = 53.12
+
+average HD between p1 and p3 = 12.45
+
+HD(b2_p2[0],b2_p3[0]) = 45.31
+HD(b2_p2[1],b2_p3[0]) = 48.44
+HD(b2_p2[2],b2_p3[0]) = 52.34
+HD(b2_p2[3],b2_p3[0]) = 47.66
+
+average HD between p2 and p3 = 12.11
+
+Calculating Interboard HD:
+
+HD(b1,p1, b2,p1):
+HD(b1_p1[0],b2_p1[0]) = 0.78
+HD(b1_p1[0],b2_p1[1]) = 46.88
+HD(b1_p1[0],b2_p1[2]) = 46.88
+HD(b1_p1[0],b2_p1[3]) = 51.56
+HD(b1_p1[1],b2_p1[0]) = 48.44
+HD(b1_p1[1],b2_p1[1]) = 0.00
+HD(b1_p1[1],b2_p1[2]) = 46.09
+HD(b1_p1[1],b2_p1[3]) = 47.66
+HD(b1_p1[2],b2_p1[0]) = 47.66
+HD(b1_p1[2],b2_p1[1]) = 45.31
+HD(b1_p1[2],b2_p1[2]) = 3.12
+HD(b1_p1[2],b2_p1[3]) = 45.31
+HD(b1_p1[3],b2_p1[0]) = 51.56
+HD(b1_p1[3],b2_p1[1]) = 47.66
+HD(b1_p1[3],b2_p1[2]) = 46.09
+HD(b1_p1[3],b2_p1[3]) = 0.00
+
+average HD between b1,p1 and b2,p1 = 35.94
+
+HD(b1,p2, b2,p2):
+HD(b1_p2[0],b2_p2[0]) = 0.00
+HD(b1_p2[0],b2_p2[1]) = 47.66
+HD(b1_p2[0],b2_p2[2]) = 47.66
+HD(b1_p2[0],b2_p2[3]) = 51.56
+HD(b1_p2[1],b2_p2[0]) = 48.44
+HD(b1_p2[1],b2_p2[1]) = 1.56
+HD(b1_p2[1],b2_p2[2]) = 46.88
+HD(b1_p2[1],b2_p2[3]) = 47.66
+HD(b1_p2[2],b2_p2[0]) = 47.66
+HD(b1_p2[2],b2_p2[1]) = 44.53
+HD(b1_p2[2],b2_p2[2]) = 0.78
+HD(b1_p2[2],b2_p2[3]) = 45.31
+HD(b1_p2[3],b2_p2[0]) = 51.56
+HD(b1_p2[3],b2_p2[1]) = 45.31
+HD(b1_p2[3],b2_p2[2]) = 45.31
+HD(b1_p2[3],b2_p2[3]) = 0.00
+
+average HD between b1,p2 and b2,p2 = 35.74
+
+HD(b1,p3, b2,p3):
+HD(b1_p3[0],b2_p3[0]) = 47.66
+HD(b1_p3[0],b2_p3[1]) = 51.56
+HD(b1_p3[0],b2_p3[2]) = 46.09
+HD(b1_p3[0],b2_p3[3]) = 46.88
+HD(b1_p3[1],b2_p3[0]) = 47.66
+HD(b1_p3[1],b2_p3[1]) = 42.19
+HD(b1_p3[1],b2_p3[2]) = 47.66
+HD(b1_p3[1],b2_p3[3]) = 56.25
+HD(b1_p3[2],b2_p3[0]) = 51.56
+HD(b1_p3[2],b2_p3[1]) = 46.09
+HD(b1_p3[2],b2_p3[2]) = 37.50
+HD(b1_p3[2],b2_p3[3]) = 50.78
+HD(b1_p3[3],b2_p3[0]) = 44.53
+HD(b1_p3[3],b2_p3[1]) = 50.00
+HD(b1_p3[3],b2_p3[2]) = 49.22
+HD(b1_p3[3],b2_p3[3]) = 51.56
+
+average HD between b1,p3 and b2,p3 = 47.95
+
+HD(b1,p1, b2,p2):
+HD(b1_p1[0],b2_p2[0]) = 0.78
+HD(b1_p1[0],b2_p2[1]) = 46.09
+HD(b1_p1[0],b2_p2[2]) = 46.09
+HD(b1_p1[0],b2_p2[3]) = 51.56
+HD(b1_p1[1],b2_p2[0]) = 48.44
+HD(b1_p1[1],b2_p2[1]) = 1.56
+HD(b1_p1[1],b2_p2[2]) = 46.88
+HD(b1_p1[1],b2_p2[3]) = 47.66
+HD(b1_p1[2],b2_p2[0]) = 47.66
+HD(b1_p1[2],b2_p2[1]) = 44.53
+HD(b1_p1[2],b2_p2[2]) = 0.78
+HD(b1_p1[2],b2_p2[3]) = 45.31
+HD(b1_p1[3],b2_p2[0]) = 51.56
+HD(b1_p1[3],b2_p2[1]) = 45.31
+HD(b1_p1[3],b2_p2[2]) = 45.31
+HD(b1_p1[3],b2_p2[3]) = 0.00
+
+average HD between b1,p1 and b2,p2 = 35.60
+
+HD(b1,p2, b2,p1):
+HD(b1_p2[0],b2_p1[0]) = 0.00
+HD(b1_p2[0],b2_p1[1]) = 48.44
+HD(b1_p2[0],b2_p1[2]) = 48.44
+HD(b1_p2[0],b2_p1[3]) = 51.56
+HD(b1_p2[1],b2_p1[0]) = 48.44
+HD(b1_p2[1],b2_p1[1]) = 0.00
+HD(b1_p2[1],b2_p1[2]) = 46.09
+HD(b1_p2[1],b2_p1[3]) = 47.66
+HD(b1_p2[2],b2_p1[0]) = 47.66
+HD(b1_p2[2],b2_p1[1]) = 45.31
+HD(b1_p2[2],b2_p1[2]) = 3.12
+HD(b1_p2[2],b2_p1[3]) = 45.31
+HD(b1_p2[3],b2_p1[0]) = 51.56
+HD(b1_p2[3],b2_p1[1]) = 47.66
+HD(b1_p2[3],b2_p1[2]) = 46.09
+HD(b1_p2[3],b2_p1[3]) = 0.00
+
+average HD between b1,p2 and b2,p1 = 36.08
+
+HD(b1,p1, b2,p3):
+HD(b1_p1[0],b2_p3[0]) = 53.12
+HD(b1_p1[0],b2_p3[1]) = 39.84
+HD(b1_p1[0],b2_p3[2]) = 56.25
+HD(b1_p1[0],b2_p3[3]) = 46.09
+HD(b1_p1[1],b2_p3[0]) = 50.78
+HD(b1_p1[1],b2_p3[1]) = 46.88
+HD(b1_p1[1],b2_p3[2]) = 42.97
+HD(b1_p1[1],b2_p3[3]) = 50.00
+HD(b1_p1[2],b2_p3[0]) = 43.75
+HD(b1_p1[2],b2_p3[1]) = 50.78
+HD(b1_p1[2],b2_p3[2]) = 45.31
+HD(b1_p1[2],b2_p3[3]) = 50.78
+HD(b1_p1[3],b2_p3[0]) = 49.22
+HD(b1_p1[3],b2_p3[1]) = 46.88
+HD(b1_p1[3],b2_p3[2]) = 44.53
+HD(b1_p1[3],b2_p3[3]) = 53.12
+
+average HD between b1,p1 and b2,p3 = 48.14
+
+HD(b1,p3, b2,p1):
+HD(b1_p3[0],b2_p1[0]) = 45.31
+HD(b1_p3[0],b2_p1[1]) = 44.53
+HD(b1_p3[0],b2_p1[2]) = 39.84
+HD(b1_p3[0],b2_p1[3]) = 38.28
+HD(b1_p3[1],b2_p1[0]) = 43.75
+HD(b1_p3[1],b2_p1[1]) = 47.66
+HD(b1_p3[1],b2_p1[2]) = 50.78
+HD(b1_p3[1],b2_p1[3]) = 47.66
+HD(b1_p3[2],b2_p1[0]) = 49.22
+HD(b1_p3[2],b2_p1[1]) = 45.31
+HD(b1_p3[2],b2_p1[2]) = 54.69
+HD(b1_p3[2],b2_p1[3]) = 48.44
+HD(b1_p3[3],b2_p1[0]) = 45.31
+HD(b1_p3[3],b2_p1[1]) = 50.78
+HD(b1_p3[3],b2_p1[2]) = 53.91
+HD(b1_p3[3],b2_p1[3]) = 47.66
+
+average HD between b1,p3 and b2,p1 = 47.07
+
+HD(b1,p2, b2,p3):
+HD(b1_p2[0],b2_p3[0]) = 51.56
+HD(b1_p2[0],b2_p3[1]) = 41.41
+HD(b1_p2[0],b2_p3[2]) = 56.25
+HD(b1_p2[0],b2_p3[3]) = 44.53
+HD(b1_p2[1],b2_p3[0]) = 50.78
+HD(b1_p2[1],b2_p3[1]) = 46.88
+HD(b1_p2[1],b2_p3[2]) = 42.97
+HD(b1_p2[1],b2_p3[3]) = 50.00
+HD(b1_p2[2],b2_p3[0]) = 43.75
+HD(b1_p2[2],b2_p3[1]) = 50.78
+HD(b1_p2[2],b2_p3[2]) = 45.31
+HD(b1_p2[2],b2_p3[3]) = 50.78
+HD(b1_p2[3],b2_p3[0]) = 49.22
+HD(b1_p2[3],b2_p3[1]) = 46.88
+HD(b1_p2[3],b2_p3[2]) = 44.53
+HD(b1_p2[3],b2_p3[3]) = 53.12
+
+average HD between b1,p2 and b2,p3 = 48.05
+
+HD(b1,p3, b2,p2):
+HD(b1_p3[0],b2_p2[0]) = 45.31
+HD(b1_p3[0],b2_p2[1]) = 42.19
+HD(b1_p3[0],b2_p2[2]) = 37.50
+HD(b1_p3[0],b2_p2[3]) = 38.28
+HD(b1_p3[1],b2_p2[0]) = 43.75
+HD(b1_p3[1],b2_p2[1]) = 48.44
+HD(b1_p3[1],b2_p2[2]) = 50.00
+HD(b1_p3[1],b2_p2[3]) = 47.66
+HD(b1_p3[2],b2_p2[0]) = 49.22
+HD(b1_p3[2],b2_p2[1]) = 46.09
+HD(b1_p3[2],b2_p2[2]) = 52.34
+HD(b1_p3[2],b2_p2[3]) = 48.44
+HD(b1_p3[3],b2_p2[0]) = 45.31
+HD(b1_p3[3],b2_p2[1]) = 48.44
+HD(b1_p3[3],b2_p2[2]) = 53.12
+HD(b1_p3[3],b2_p2[3]) = 47.66
+
+average HD between b1,p3 and b1,p2 = 46.48
+
+average intraboard hamming distance for board 1 = 8.06
+average intraboard hamming distance for board 2 = 8.25
+average interboard hamming distance = 42.34
+VCD info: dumpfile calc_hamming.vcd opened for output.
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[0]) = 0.00
+HD(b1_p1[2],b1_p2[0]) = 0.00
+HD(b1_p1[3],b1_p2[0]) = 0.00
+
+average HD between p1 and p2 = 0.05
+
+HD(b1_p1[0],b1_p3[0]) = 45.31
+HD(b1_p1[1],b1_p3[0]) = 47.66
+HD(b1_p1[2],b1_p3[0]) = 52.34
+HD(b1_p1[3],b1_p3[0]) = 47.66
+
+average HD between p1 and p3 = 12.06
+
+HD(b1_p2[0],b1_p3[0]) = 45.31
+HD(b1_p2[1],b1_p3[0]) = 47.66
+HD(b1_p2[2],b1_p3[0]) = 52.34
+HD(b1_p2[3],b1_p3[0]) = 47.66
+
+average HD between p2 and p3 = 12.06
+
+Calculating HD for Board 2:
+
+HD(placement1, placement2):
+HD(b2_p1[0],b2_p2[0]) = 0.00
+HD(b2_p1[1],b2_p2[0]) = 1.56
+HD(b2_p1[2],b2_p2[0]) = 1.56
+HD(b2_p1[3],b2_p2[0]) = 0.00
+
+average HD between p1 and p2 = 0.20
+
+HD(b2_p1[0],b2_p3[0]) = 51.56
+HD(b2_p1[1],b2_p3[0]) = 46.88
+HD(b2_p1[2],b2_p3[0]) = 47.66
+HD(b2_p1[3],b2_p3[0]) = 53.12
+
+average HD between p1 and p3 = 12.45
+
+HD(b2_p2[0],b2_p3[0]) = 45.31
+HD(b2_p2[1],b2_p3[0]) = 48.44
+HD(b2_p2[2],b2_p3[0]) = 52.34
+HD(b2_p2[3],b2_p3[0]) = 47.66
+
+average HD between p2 and p3 = 12.11
+
+Calculating Interboard HD:
+
+HD(b1,p1, b2,p1):
+HD(b1_p1[0],b2_p1[0]) = 0.78
+HD(b1_p1[0],b2_p1[1]) = 46.88
+HD(b1_p1[0],b2_p1[2]) = 46.88
+HD(b1_p1[0],b2_p1[3]) = 51.56
+HD(b1_p1[1],b2_p1[0]) = 48.44
+HD(b1_p1[1],b2_p1[1]) = 0.00
+HD(b1_p1[1],b2_p1[2]) = 46.09
+HD(b1_p1[1],b2_p1[3]) = 47.66
+HD(b1_p1[2],b2_p1[0]) = 47.66
+HD(b1_p1[2],b2_p1[1]) = 45.31
+HD(b1_p1[2],b2_p1[2]) = 3.12
+HD(b1_p1[2],b2_p1[3]) = 45.31
+HD(b1_p1[3],b2_p1[0]) = 51.56
+HD(b1_p1[3],b2_p1[1]) = 47.66
+HD(b1_p1[3],b2_p1[2]) = 46.09
+HD(b1_p1[3],b2_p1[3]) = 0.00
+
+average HD between b1,p1 and b2,p1 = 35.94
+
+HD(b1,p2, b2,p2):
+HD(b1_p2[0],b2_p2[0]) = 0.00
+HD(b1_p2[0],b2_p2[1]) = 47.66
+HD(b1_p2[0],b2_p2[2]) = 47.66
+HD(b1_p2[0],b2_p2[3]) = 51.56
+HD(b1_p2[1],b2_p2[0]) = 48.44
+HD(b1_p2[1],b2_p2[1]) = 1.56
+HD(b1_p2[1],b2_p2[2]) = 46.88
+HD(b1_p2[1],b2_p2[3]) = 47.66
+HD(b1_p2[2],b2_p2[0]) = 47.66
+HD(b1_p2[2],b2_p2[1]) = 44.53
+HD(b1_p2[2],b2_p2[2]) = 0.78
+HD(b1_p2[2],b2_p2[3]) = 45.31
+HD(b1_p2[3],b2_p2[0]) = 51.56
+HD(b1_p2[3],b2_p2[1]) = 45.31
+HD(b1_p2[3],b2_p2[2]) = 45.31
+HD(b1_p2[3],b2_p2[3]) = 0.00
+
+average HD between b1,p2 and b2,p2 = 35.74
+
+HD(b1,p3, b2,p3):
+HD(b1_p3[0],b2_p3[0]) = 47.66
+HD(b1_p3[0],b2_p3[1]) = 51.56
+HD(b1_p3[0],b2_p3[2]) = 46.09
+HD(b1_p3[0],b2_p3[3]) = 46.88
+HD(b1_p3[1],b2_p3[0]) = 47.66
+HD(b1_p3[1],b2_p3[1]) = 42.19
+HD(b1_p3[1],b2_p3[2]) = 47.66
+HD(b1_p3[1],b2_p3[3]) = 56.25
+HD(b1_p3[2],b2_p3[0]) = 51.56
+HD(b1_p3[2],b2_p3[1]) = 46.09
+HD(b1_p3[2],b2_p3[2]) = 37.50
+HD(b1_p3[2],b2_p3[3]) = 50.78
+HD(b1_p3[3],b2_p3[0]) = 44.53
+HD(b1_p3[3],b2_p3[1]) = 50.00
+HD(b1_p3[3],b2_p3[2]) = 49.22
+HD(b1_p3[3],b2_p3[3]) = 51.56
+
+average HD between b1,p3 and b2,p3 = 47.95
+
+HD(b1,p1, b2,p2):
+HD(b1_p1[0],b2_p2[0]) = 0.78
+HD(b1_p1[0],b2_p2[1]) = 46.09
+HD(b1_p1[0],b2_p2[2]) = 46.09
+HD(b1_p1[0],b2_p2[3]) = 51.56
+HD(b1_p1[1],b2_p2[0]) = 48.44
+HD(b1_p1[1],b2_p2[1]) = 1.56
+HD(b1_p1[1],b2_p2[2]) = 46.88
+HD(b1_p1[1],b2_p2[3]) = 47.66
+HD(b1_p1[2],b2_p2[0]) = 47.66
+HD(b1_p1[2],b2_p2[1]) = 44.53
+HD(b1_p1[2],b2_p2[2]) = 0.78
+HD(b1_p1[2],b2_p2[3]) = 45.31
+HD(b1_p1[3],b2_p2[0]) = 51.56
+HD(b1_p1[3],b2_p2[1]) = 45.31
+HD(b1_p1[3],b2_p2[2]) = 45.31
+HD(b1_p1[3],b2_p2[3]) = 0.00
+
+average HD between b1,p1 and b2,p2 = 35.60
+
+HD(b1,p2, b2,p1):
+HD(b1_p2[0],b2_p1[0]) = 0.00
+HD(b1_p2[0],b2_p1[1]) = 48.44
+HD(b1_p2[0],b2_p1[2]) = 48.44
+HD(b1_p2[0],b2_p1[3]) = 51.56
+HD(b1_p2[1],b2_p1[0]) = 48.44
+HD(b1_p2[1],b2_p1[1]) = 0.00
+HD(b1_p2[1],b2_p1[2]) = 46.09
+HD(b1_p2[1],b2_p1[3]) = 47.66
+HD(b1_p2[2],b2_p1[0]) = 47.66
+HD(b1_p2[2],b2_p1[1]) = 45.31
+HD(b1_p2[2],b2_p1[2]) = 3.12
+HD(b1_p2[2],b2_p1[3]) = 45.31
+HD(b1_p2[3],b2_p1[0]) = 51.56
+HD(b1_p2[3],b2_p1[1]) = 47.66
+HD(b1_p2[3],b2_p1[2]) = 46.09
+HD(b1_p2[3],b2_p1[3]) = 0.00
+
+average HD between b1,p2 and b2,p1 = 36.08
+
+HD(b1,p1, b2,p3):
+HD(b1_p1[0],b2_p3[0]) = 53.12
+HD(b1_p1[0],b2_p3[1]) = 39.84
+HD(b1_p1[0],b2_p3[2]) = 56.25
+HD(b1_p1[0],b2_p3[3]) = 46.09
+HD(b1_p1[1],b2_p3[0]) = 50.78
+HD(b1_p1[1],b2_p3[1]) = 46.88
+HD(b1_p1[1],b2_p3[2]) = 42.97
+HD(b1_p1[1],b2_p3[3]) = 50.00
+HD(b1_p1[2],b2_p3[0]) = 43.75
+HD(b1_p1[2],b2_p3[1]) = 50.78
+HD(b1_p1[2],b2_p3[2]) = 45.31
+HD(b1_p1[2],b2_p3[3]) = 50.78
+HD(b1_p1[3],b2_p3[0]) = 49.22
+HD(b1_p1[3],b2_p3[1]) = 46.88
+HD(b1_p1[3],b2_p3[2]) = 44.53
+HD(b1_p1[3],b2_p3[3]) = 53.12
+
+average HD between b1,p1 and b2,p3 = 48.14
+
+HD(b1,p3, b2,p1):
+HD(b1_p3[0],b2_p1[0]) = 45.31
+HD(b1_p3[0],b2_p1[1]) = 44.53
+HD(b1_p3[0],b2_p1[2]) = 39.84
+HD(b1_p3[0],b2_p1[3]) = 38.28
+HD(b1_p3[1],b2_p1[0]) = 43.75
+HD(b1_p3[1],b2_p1[1]) = 47.66
+HD(b1_p3[1],b2_p1[2]) = 50.78
+HD(b1_p3[1],b2_p1[3]) = 47.66
+HD(b1_p3[2],b2_p1[0]) = 49.22
+HD(b1_p3[2],b2_p1[1]) = 45.31
+HD(b1_p3[2],b2_p1[2]) = 54.69
+HD(b1_p3[2],b2_p1[3]) = 48.44
+HD(b1_p3[3],b2_p1[0]) = 45.31
+HD(b1_p3[3],b2_p1[1]) = 50.78
+HD(b1_p3[3],b2_p1[2]) = 53.91
+HD(b1_p3[3],b2_p1[3]) = 47.66
+
+average HD between b1,p3 and b2,p1 = 47.07
+
+HD(b1,p2, b2,p3):
+HD(b1_p2[0],b2_p3[0]) = 51.56
+HD(b1_p2[0],b2_p3[1]) = 41.41
+HD(b1_p2[0],b2_p3[2]) = 56.25
+HD(b1_p2[0],b2_p3[3]) = 44.53
+HD(b1_p2[1],b2_p3[0]) = 50.78
+HD(b1_p2[1],b2_p3[1]) = 46.88
+HD(b1_p2[1],b2_p3[2]) = 42.97
+HD(b1_p2[1],b2_p3[3]) = 50.00
+HD(b1_p2[2],b2_p3[0]) = 43.75
+HD(b1_p2[2],b2_p3[1]) = 50.78
+HD(b1_p2[2],b2_p3[2]) = 45.31
+HD(b1_p2[2],b2_p3[3]) = 50.78
+HD(b1_p2[3],b2_p3[0]) = 49.22
+HD(b1_p2[3],b2_p3[1]) = 46.88
+HD(b1_p2[3],b2_p3[2]) = 44.53
+HD(b1_p2[3],b2_p3[3]) = 53.12
+
+average HD between b1,p2 and b2,p3 = 48.05
+
+HD(b1,p3, b2,p2):
+HD(b1_p3[0],b2_p2[0]) = 45.31
+HD(b1_p3[0],b2_p2[1]) = 42.19
+HD(b1_p3[0],b2_p2[2]) = 37.50
+HD(b1_p3[0],b2_p2[3]) = 38.28
+HD(b1_p3[1],b2_p2[0]) = 43.75
+HD(b1_p3[1],b2_p2[1]) = 48.44
+HD(b1_p3[1],b2_p2[2]) = 50.00
+HD(b1_p3[1],b2_p2[3]) = 47.66
+HD(b1_p3[2],b2_p2[0]) = 49.22
+HD(b1_p3[2],b2_p2[1]) = 46.09
+HD(b1_p3[2],b2_p2[2]) = 52.34
+HD(b1_p3[2],b2_p2[3]) = 48.44
+HD(b1_p3[3],b2_p2[0]) = 45.31
+HD(b1_p3[3],b2_p2[1]) = 48.44
+HD(b1_p3[3],b2_p2[2]) = 53.12
+HD(b1_p3[3],b2_p2[3]) = 47.66
+
+average HD between b1,p3 and b1,p2 = 46.48
+
+average intraboard hamming distance for board 1 = 8.06
+average intraboard hamming distance for board 2 = 8.25
+average interboard hamming distance = 42.34
+VCD info: dumpfile calc_hamming.vcd opened for output.
+Calculating HD for Board 1:
+
+HD(placement1, placement2):
+HD(b1_p1[0],b1_p2[0]) = 0.78
+HD(b1_p1[1],b1_p2[0]) = 0.00
+HD(b1_p1[2],b1_p2[0]) = 0.00
+HD(b1_p1[3],b1_p2[0]) = 0.00
+
+average HD between p1 and p2 = 0.05
+
+HD(b1_p1[0],b1_p3[0]) = 45.31
+HD(b1_p1[1],b1_p3[0]) = 47.66
+HD(b1_p1[2],b1_p3[0]) = 52.34
+HD(b1_p1[3],b1_p3[0]) = 47.66
+
+average HD between p1 and p3 = 12.06
+
+HD(b1_p2[0],b1_p3[0]) = 45.31
+HD(b1_p2[1],b1_p3[0]) = 47.66
+HD(b1_p2[2],b1_p3[0]) = 52.34
+HD(b1_p2[3],b1_p3[0]) = 47.66
+
+average HD between p2 and p3 = 12.06
+
+Calculating HD for Board 2:
+
+HD(placement1, placement2):
+HD(b2_p1[0],b2_p2[0]) = 0.00
+HD(b2_p1[1],b2_p2[0]) = 1.56
+HD(b2_p1[2],b2_p2[0]) = 1.56
+HD(b2_p1[3],b2_p2[0]) = 0.00
+
+average HD between p1 and p2 = 0.20
+
+HD(b2_p1[0],b2_p3[0]) = 51.56
+HD(b2_p1[1],b2_p3[0]) = 46.88
+HD(b2_p1[2],b2_p3[0]) = 47.66
+HD(b2_p1[3],b2_p3[0]) = 53.12
+
+average HD between p1 and p3 = 12.45
+
+HD(b2_p2[0],b2_p3[0]) = 45.31
+HD(b2_p2[1],b2_p3[0]) = 48.44
+HD(b2_p2[2],b2_p3[0]) = 52.34
+HD(b2_p2[3],b2_p3[0]) = 47.66
+
+average HD between p2 and p3 = 12.11
+
+Calculating Interboard HD:
+
+HD(b1,p1, b2,p1):
+HD(b1_p1[0],b2_p1[0]) = 0.78
+HD(b1_p1[0],b2_p1[1]) = 46.88
+HD(b1_p1[0],b2_p1[2]) = 46.88
+HD(b1_p1[0],b2_p1[3]) = 51.56
+HD(b1_p1[1],b2_p1[0]) = 48.44
+HD(b1_p1[1],b2_p1[1]) = 0.00
+HD(b1_p1[1],b2_p1[2]) = 46.09
+HD(b1_p1[1],b2_p1[3]) = 47.66
+HD(b1_p1[2],b2_p1[0]) = 47.66
+HD(b1_p1[2],b2_p1[1]) = 45.31
+HD(b1_p1[2],b2_p1[2]) = 3.12
+HD(b1_p1[2],b2_p1[3]) = 45.31
+HD(b1_p1[3],b2_p1[0]) = 51.56
+HD(b1_p1[3],b2_p1[1]) = 47.66
+HD(b1_p1[3],b2_p1[2]) = 46.09
+HD(b1_p1[3],b2_p1[3]) = 0.00
+
+average HD between b1,p1 and b2,p1 = 35.94
+
+HD(b1,p2, b2,p2):
+HD(b1_p2[0],b2_p2[0]) = 0.00
+HD(b1_p2[0],b2_p2[1]) = 47.66
+HD(b1_p2[0],b2_p2[2]) = 47.66
+HD(b1_p2[0],b2_p2[3]) = 51.56
+HD(b1_p2[1],b2_p2[0]) = 48.44
+HD(b1_p2[1],b2_p2[1]) = 1.56
+HD(b1_p2[1],b2_p2[2]) = 46.88
+HD(b1_p2[1],b2_p2[3]) = 47.66
+HD(b1_p2[2],b2_p2[0]) = 47.66
+HD(b1_p2[2],b2_p2[1]) = 44.53
+HD(b1_p2[2],b2_p2[2]) = 0.78
+HD(b1_p2[2],b2_p2[3]) = 45.31
+HD(b1_p2[3],b2_p2[0]) = 51.56
+HD(b1_p2[3],b2_p2[1]) = 45.31
+HD(b1_p2[3],b2_p2[2]) = 45.31
+HD(b1_p2[3],b2_p2[3]) = 0.00
+
+average HD between b1,p2 and b2,p2 = 35.74
+
+HD(b1,p3, b2,p3):
+HD(b1_p3[0],b2_p3[0]) = 47.66
+HD(b1_p3[0],b2_p3[1]) = 51.56
+HD(b1_p3[0],b2_p3[2]) = 46.09
+HD(b1_p3[0],b2_p3[3]) = 46.88
+HD(b1_p3[1],b2_p3[0]) = 47.66
+HD(b1_p3[1],b2_p3[1]) = 42.19
+HD(b1_p3[1],b2_p3[2]) = 47.66
+HD(b1_p3[1],b2_p3[3]) = 56.25
+HD(b1_p3[2],b2_p3[0]) = 51.56
+HD(b1_p3[2],b2_p3[1]) = 46.09
+HD(b1_p3[2],b2_p3[2]) = 37.50
+HD(b1_p3[2],b2_p3[3]) = 50.78
+HD(b1_p3[3],b2_p3[0]) = 44.53
+HD(b1_p3[3],b2_p3[1]) = 50.00
+HD(b1_p3[3],b2_p3[2]) = 49.22
+HD(b1_p3[3],b2_p3[3]) = 51.56
+
+average HD between b1,p3 and b2,p3 = 47.95
+
+HD(b1,p1, b2,p2):
+HD(b1_p1[0],b2_p2[0]) = 0.78
+HD(b1_p1[0],b2_p2[1]) = 46.09
+HD(b1_p1[0],b2_p2[2]) = 46.09
+HD(b1_p1[0],b2_p2[3]) = 51.56
+HD(b1_p1[1],b2_p2[0]) = 48.44
+HD(b1_p1[1],b2_p2[1]) = 1.56
+HD(b1_p1[1],b2_p2[2]) = 46.88
+HD(b1_p1[1],b2_p2[3]) = 47.66
+HD(b1_p1[2],b2_p2[0]) = 47.66
+HD(b1_p1[2],b2_p2[1]) = 44.53
+HD(b1_p1[2],b2_p2[2]) = 0.78
+HD(b1_p1[2],b2_p2[3]) = 45.31
+HD(b1_p1[3],b2_p2[0]) = 51.56
+HD(b1_p1[3],b2_p2[1]) = 45.31
+HD(b1_p1[3],b2_p2[2]) = 45.31
+HD(b1_p1[3],b2_p2[3]) = 0.00
+
+average HD between b1,p1 and b2,p2 = 35.60
+
+HD(b1,p2, b2,p1):
+HD(b1_p2[0],b2_p1[0]) = 0.00
+HD(b1_p2[0],b2_p1[1]) = 48.44
+HD(b1_p2[0],b2_p1[2]) = 48.44
+HD(b1_p2[0],b2_p1[3]) = 51.56
+HD(b1_p2[1],b2_p1[0]) = 48.44
+HD(b1_p2[1],b2_p1[1]) = 0.00
+HD(b1_p2[1],b2_p1[2]) = 46.09
+HD(b1_p2[1],b2_p1[3]) = 47.66
+HD(b1_p2[2],b2_p1[0]) = 47.66
+HD(b1_p2[2],b2_p1[1]) = 45.31
+HD(b1_p2[2],b2_p1[2]) = 3.12
+HD(b1_p2[2],b2_p1[3]) = 45.31
+HD(b1_p2[3],b2_p1[0]) = 51.56
+HD(b1_p2[3],b2_p1[1]) = 47.66
+HD(b1_p2[3],b2_p1[2]) = 46.09
+HD(b1_p2[3],b2_p1[3]) = 0.00
+
+average HD between b1,p2 and b2,p1 = 36.08
+
+HD(b1,p1, b2,p3):
+HD(b1_p1[0],b2_p3[0]) = 53.12
+HD(b1_p1[0],b2_p3[1]) = 39.84
+HD(b1_p1[0],b2_p3[2]) = 56.25
+HD(b1_p1[0],b2_p3[3]) = 46.09
+HD(b1_p1[1],b2_p3[0]) = 50.78
+HD(b1_p1[1],b2_p3[1]) = 46.88
+HD(b1_p1[1],b2_p3[2]) = 42.97
+HD(b1_p1[1],b2_p3[3]) = 50.00
+HD(b1_p1[2],b2_p3[0]) = 43.75
+HD(b1_p1[2],b2_p3[1]) = 50.78
+HD(b1_p1[2],b2_p3[2]) = 45.31
+HD(b1_p1[2],b2_p3[3]) = 50.78
+HD(b1_p1[3],b2_p3[0]) = 49.22
+HD(b1_p1[3],b2_p3[1]) = 46.88
+HD(b1_p1[3],b2_p3[2]) = 44.53
+HD(b1_p1[3],b2_p3[3]) = 53.12
+
+average HD between b1,p1 and b2,p3 = 48.14
+
+HD(b1,p3, b2,p1):
+HD(b1_p3[0],b2_p1[0]) = 45.31
+HD(b1_p3[0],b2_p1[1]) = 44.53
+HD(b1_p3[0],b2_p1[2]) = 39.84
+HD(b1_p3[0],b2_p1[3]) = 38.28
+HD(b1_p3[1],b2_p1[0]) = 43.75
+HD(b1_p3[1],b2_p1[1]) = 47.66
+HD(b1_p3[1],b2_p1[2]) = 50.78
+HD(b1_p3[1],b2_p1[3]) = 47.66
+HD(b1_p3[2],b2_p1[0]) = 49.22
+HD(b1_p3[2],b2_p1[1]) = 45.31
+HD(b1_p3[2],b2_p1[2]) = 54.69
+HD(b1_p3[2],b2_p1[3]) = 48.44
+HD(b1_p3[3],b2_p1[0]) = 45.31
+HD(b1_p3[3],b2_p1[1]) = 50.78
+HD(b1_p3[3],b2_p1[2]) = 53.91
+HD(b1_p3[3],b2_p1[3]) = 47.66
+
+average HD between b1,p3 and b2,p1 = 47.07
+
+HD(b1,p2, b2,p3):
+HD(b1_p2[0],b2_p3[0]) = 51.56
+HD(b1_p2[0],b2_p3[1]) = 41.41
+HD(b1_p2[0],b2_p3[2]) = 56.25
+HD(b1_p2[0],b2_p3[3]) = 44.53
+HD(b1_p2[1],b2_p3[0]) = 50.78
+HD(b1_p2[1],b2_p3[1]) = 46.88
+HD(b1_p2[1],b2_p3[2]) = 42.97
+HD(b1_p2[1],b2_p3[3]) = 50.00
+HD(b1_p2[2],b2_p3[0]) = 43.75
+HD(b1_p2[2],b2_p3[1]) = 50.78
+HD(b1_p2[2],b2_p3[2]) = 45.31
+HD(b1_p2[2],b2_p3[3]) = 50.78
+HD(b1_p2[3],b2_p3[0]) = 49.22
+HD(b1_p2[3],b2_p3[1]) = 46.88
+HD(b1_p2[3],b2_p3[2]) = 44.53
+HD(b1_p2[3],b2_p3[3]) = 53.12
+
+average HD between b1,p2 and b2,p3 = 48.05
+
+HD(b1,p3, b2,p2):
+HD(b1_p3[0],b2_p2[0]) = 45.31
+HD(b1_p3[0],b2_p2[1]) = 42.19
+HD(b1_p3[0],b2_p2[2]) = 37.50
+HD(b1_p3[0],b2_p2[3]) = 38.28
+HD(b1_p3[1],b2_p2[0]) = 43.75
+HD(b1_p3[1],b2_p2[1]) = 48.44
+HD(b1_p3[1],b2_p2[2]) = 50.00
+HD(b1_p3[1],b2_p2[3]) = 47.66
+HD(b1_p3[2],b2_p2[0]) = 49.22
+HD(b1_p3[2],b2_p2[1]) = 46.09
+HD(b1_p3[2],b2_p2[2]) = 52.34
+HD(b1_p3[2],b2_p2[3]) = 48.44
+HD(b1_p3[3],b2_p2[0]) = 45.31
+HD(b1_p3[3],b2_p2[1]) = 48.44
+HD(b1_p3[3],b2_p2[2]) = 53.12
+HD(b1_p3[3],b2_p2[3]) = 47.66
+
+average HD between b1,p3 and b1,p2 = 46.48
+
+average intraboard hamming distance for board 1 = 8.06
+average intraboard hamming distance for board 2 = 8.25
+average interboard hamming distance = 42.34
